@@ -33,25 +33,8 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = TemplateSendMessage(
-    alt_text='Confirm template',
-    template=ConfirmTemplate(
-        text='Are you sure?',
-        actions=[
-            PostbackTemplateAction(
-                label='postback',
-                text='postback text',
-                data='action=buy&itemid=1'
-            ),
-            MessageTemplateAction(
-                label='message',
-                text='message text'
-            )
-        ]
-    )
-)
+    message = TextSendMessage(text='Hello, world')
     line_bot_api.reply_message(event.reply_token, message)
-
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
