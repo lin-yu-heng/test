@@ -35,7 +35,7 @@ def callback():
 def handle_message(event):
     text=event.message.text
     if (text=="123"):
-        text=line_bot_api.get_profile(<user_id>)
+        text=event.source.userId
     else:
         text=event.message.text
     message = TextSendMessage(text)
