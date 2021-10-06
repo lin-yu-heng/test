@@ -37,6 +37,7 @@ def handle_message(event):
         profile = line_bot_api.get_profile('<userid>')
     except LineBotApiError as e:
         message = TextSendMessage("錯誤")
+        line_bot_api.reply_message(event.reply_token, message)
     text=event.message.text
     if (text=="111"):
         message = TextSendMessage(profile)
