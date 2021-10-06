@@ -43,9 +43,10 @@ def handle_message(event):
         text="今日工項"
     elif (text=="2"):
         text="進度回報"
+    elif (text=="3"):
+        text=list1
     else:
-        test=list1
-#         text=name+event.message.text
+        text=event.message.text+"/n/n/n"
     message = TextSendMessage(text)
     line_bot_api.reply_message(event.reply_token, message)
 import os
