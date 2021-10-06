@@ -33,8 +33,9 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    text=event.message.text
     if (text=="123"):
-        text="0"
+        text=event
     else:
         text=event.message.text
     message = TextSendMessage(text)
