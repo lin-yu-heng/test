@@ -34,8 +34,12 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text=event.message.text
-    if (text=="123"):
+    if (text=="getId"):
         text=event.source.user_id
+    elif (text=="1"):
+        text="今日工項"
+    elif (text=="2"):
+        text="進度回報"
     else:
         text=event.message.text
     message = TextSendMessage(text)
