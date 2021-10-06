@@ -48,7 +48,7 @@ def handle_message(event):
     elif (text=="2"):
         text=list2[name]+"進度回報"
     else:
-        text=event.message.text+"/r/n/r/n/r/n"
+        text=event.message.text+"\r\n\r\n\r\n"
     message = TextSendMessage(text)
     line_bot_api.reply_message(event.reply_token, message)
 import os
