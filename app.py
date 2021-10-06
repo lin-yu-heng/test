@@ -35,13 +35,13 @@ def callback():
 def handle_message(event):
     text=event.message.text
     user = event.source.user_id
-    name=list.index(user)
+#     name=list.index(user)
     if (text=="getId"):
-        text=name+user
+        text=user
     elif (text=="1"):
-        text=name+"今日工項"
+        text="今日工項"
     elif (text=="2"):
-        text=name+"進度回報"
+        text="進度回報"
     else:
         text=name+event.message.text
     message = TextSendMessage(text)
