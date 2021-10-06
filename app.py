@@ -22,10 +22,11 @@ def callback():
     signature = request.headers['X-Line-Signature']
     # get request body as text
     body = request.get_data(as_text=True)
+    name = line_bot_api.get_profile('<user_id>')
     app.logger.info("Request body: " + body)
     # handle webhook body
     try:
-        handler.handle(body, signature)
+        handler.handle(name+body, signature)
     except InvalidSignatureError:
         abort(400)
     return 'OK'
