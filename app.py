@@ -35,11 +35,9 @@ def callback():
 def handle_message(event):
     text=event.message.text
     if (text=="111"):
-        message = TextSendMessage("hello")
+        message = TextSendMessage("hello123")
     else:
         message = TextSendMessage(text)
-    line_bot_api.reply_message(event.reply_token, TextSendMessage("hello"))
-    message = TextSendMessage("hello123")
     line_bot_api.reply_message(event.reply_token, message)
 import os
 if __name__ == "__main__":
