@@ -6,7 +6,6 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-import requests
 
 app = Flask(__name__)
 
@@ -37,21 +36,17 @@ def handle_message(event):
     list2 = ['z1','z2','z3']
     text=event.message.text
     user = event.source.user_id
-    url = "https://script.google.com/macros/s/AKfycbz7eWk-HW7D6EWmRRmcvL7PZrPAq1nIdK44V0r16LDNnAK1cvz1dAIxr1B-xpdbVohD/exec"
-    payload = {'t':text}
-    resp=requests.get(url, params=payload)
-    text=resp.text
-#     try:
-#         name=list1.index(user)
-#     except InvalidSignatureError:
-#         name="not find"
-#     if (text=="getId"):
-#         text=user
-#     elif (text=="1"):
-#         text=list2[name]+"今日工項"
-#     elif (text=="2"):
-#         text=list2[name]+"進度回報"
-#     else:
+    try:
+        name=list1.index(user)
+    except InvalidSignatureError:
+        name="not find"
+    if (text=="getId"):
+        text=user
+    elif (text=="1"):
+        text=list2[name]+"今日工項"
+    elif (text=="2"):
+        text=list2[name]+"進度回報"
+    else:
         text=text+"\r\n"
     message = TextSendMessage(text)
     line_bot_api.reply_message(event.reply_token, message)
