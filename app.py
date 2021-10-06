@@ -34,9 +34,9 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     try:
-        profile = line_bot_api.get_profile('<userId>')
+        profile = line_bot_api.get_profile('<userid>')
     except LineBotApiError as e:
-        # error handle
+        message = TextSendMessage("錯誤")
     text=event.message.text
     if (text=="111"):
         message = TextSendMessage(profile)
