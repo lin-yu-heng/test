@@ -35,7 +35,7 @@ def callback():
 def handle_message(event):
     text=event.message.text
     user = event.source.user_id
-    name=list.index(user);
+    name=list.index(user)
     if (text=="getId"):
         text=name+user
     elif (text=="1"):
