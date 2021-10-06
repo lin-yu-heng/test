@@ -35,7 +35,7 @@ def callback():
 def handle_message(event):
     text=event.message.text
     if (text=="123"):
-        text=event.source.userId
+        text=event.source
     else:
         text=event.message.text
     message = TextSendMessage(text)
