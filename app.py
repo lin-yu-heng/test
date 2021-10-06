@@ -33,21 +33,22 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    list1 = ['Uef0961ac3e279db333cbd9f168ed3cd3','222','333']
+    list1 = ['Uef0961ac3e279db333cbd9f168ed3cd3','U9cc0d9e3383c477dd19dceb3deaaddc8','333']
     list2 = ['z1','z2','z3']
     text=event.message.text
     user = event.source.user_id
-    name=list1.index(user)
+    try:
+        name=list1.index(user)
+    except InvalidSignatureError:
+        name="not find"
     if (text=="getId"):
         text=user
     elif (text=="1"):
-        text="今日工項"
+        text=list2[name]+"今日工項"
     elif (text=="2"):
-        text="進度回報"
-    elif (text=="3"):
-        text=list2[name]
+        text=list2[name]+"進度回報"
     else:
-        text=event.message.text+"/n/n/n"
+        text=event.message.text+"/r/n/r/n/r/n"
     message = TextSendMessage(text)
     line_bot_api.reply_message(event.reply_token, message)
 import os
