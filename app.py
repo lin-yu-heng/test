@@ -33,11 +33,7 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    profile = line_bot_api.get_profile()
-    # print(profile.display_name)
-    # print(profile.user_id)
-    # print(profile.picture_url)
-    # print(profile.status_message)
+#     profile = line_bot_api.get_profile()
     text=event.message.text
     if (text=="111"):
         message = TextSendMessage(profile.user_id)
