@@ -28,6 +28,10 @@ def callback():
         handler.handle(body, signature)
     except InvalidSignatureError:
         abort(400)
+    try:
+        profile = line_bot_api.get_profile('<user_id>')
+    except LineBotApiError as e:
+        abort(400)
     return 'OK'
 
 # 處理訊息
