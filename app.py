@@ -33,7 +33,7 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    list1 = ["Uef0961ac3e279db333cbd9f168ed3cd3","222","333"]
+    list1 = ['Uef0961ac3e279db333cbd9f168ed3cd3','222','333']
     text=event.message.text
     user = event.source.user_id
     name=list1.index(user)
@@ -44,7 +44,7 @@ def handle_message(event):
     elif (text=="2"):
         text="進度回報"
     elif (text=="3"):
-        text=list1
+        text=list1[1]
     else:
         text=event.message.text+"/n/n/n"
     message = TextSendMessage(text)
