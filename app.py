@@ -36,7 +36,7 @@ def handle_message(event):
 #     profile = line_bot_api.get_profile()
     text=event.message.text
     if (text=="111"):
-        message = TextSendMessage(event.user_id)
+        message = TextSendMessage(event.user_id.text)
     else:
         message = TextSendMessage(text)
     line_bot_api.reply_message(event.reply_token, message)
